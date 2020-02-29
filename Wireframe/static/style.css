@@ -1,0 +1,66 @@
+body {
+  background-color: rgba(0, 168, 255,1.0);
+}
+
+.header {
+  background-color: rgba(0, 151, 230,1.0);
+}
+
+.navbar-custom {
+  background-color: rgba(245, 246, 250,1.0);
+  color: rgba(47, 54, 64,1.0);
+}
+
+.body {
+  color: rgba(47, 54, 64,1.0);
+  background-color: rgba(245, 246, 250,1.0);
+  padding-top: 0.5em;
+}
+
+.footer {
+  border-top: 1px solid black;
+  padding: 0.5em;
+}
+
+.link {
+  text-decoration: none !important;
+  color: rgba(47, 54, 64,1.0) !important;
+}
+
+.info-bar {
+  background-color: rgba(220, 221, 225,1.0);
+  padding: 0.5em;
+  border-bottom: 1px solid black;
+}
+
+.info-container {
+  padding-bottom: 1em;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+}
+
+.content-header {
+  font-size: 2em;
+  background-color: rgba(220, 221, 225,1.0);
+  padding: 0.25em;
+  border-bottom: 1px solid black;
+}
+
+.content-body {
+  padding: 0.25em;
+  margin-top: 1em;
+}
+
+@media only screen and (max-width: 770px) {
+  .sm-hide {
+    display: none;
+  }
+}
+
+.project-title {
+  font-weight: bold;
+}
+
+.project-stats {
+
+}
