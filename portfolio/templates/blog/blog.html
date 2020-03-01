@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+  <div class="content-header">Blog</div>
+  <div class="content-body">
+    <div class="row">
+      <div class="col-sm">
+        <span class="project-title"><a href="#" class="link">Hello world!</a></span><br>
+        <span class="project-desc">Welcome to the new design of my website, here it will cut off when there's so many wor...</span>
+      </div>
+      <div class="col-sm-1 project-stats sm-hide">
+        <i class="fas fa-eye"></i> 5<br>
+        <i class="far fa-thumbs-up"></i> 2<br>
+      </div>
+    </div>
+    <hr> <!-- ### mid ### -->
+    <div class="row">
+      <div class="col-sm">
+        <span class="project-title"><a href="#" class="link">Another hello world!</a></span><br>
+        <span class="project-desc">Welcome to the new design of my website, here it will cut off when there's so many wor...</span>
+      </div>
+      <div class="col-sm-1 project-stats sm-hide">
+        <i class="fas fa-eye"></i> 5<br>
+        <i class="far fa-thumbs-up"></i> 2<br>
+      </div>
+    </div>
+  </div>
+{% endblock %}
