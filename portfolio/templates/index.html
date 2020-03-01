@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-sm-3 text-center" style="margin-bottom:0.5em;">
+      <img src="{% static 'images/profile.png' %}" class="img-thumbnail img-fluid img-custom">
+    </div>
+    <div class="col-sm lead">
+      <p>Hi, my name is Luke Holland and this is my website.</p>
+      <p>
+        I'm currently a student at the University of Glasgow stuyding Software Engineering. This is my porfolio website and will be used to showcase my projects
+        I have worked on in my free time and provide links to my social media and developer accounts.
+      </p>
+      <p>If you see any project on here you like feel free to check it out on Github or contact me regarding it if you have any questions or requests.</p>
+    </div>
+  </div>
+  <hr>
+  <div class="info-container">
+    <p class="lead text-center info-bar">Statistics</p>
+    <div class="row">
+      <div class="col text-center">
+        Website Stats <br>
+        <img class="img-fluid" src="{% static 'images/pie.png' %}">
+      </div>
+      <div class="col text-center">
+        Project Stats <br>
+        <img class="img-fluid" src="{% static 'images/pie.png' %}">
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="info-container">
+    <p class="lead text-center info-bar">Contact and Social Media</p>
+    <div class="row text-center">
+      <div class="col"> <i class="fab fa-github fa-5x"></i> </div>
+      <div class="col"> <i class="fab fa-twitter fa-5x"></i> </div>
+      <div class="col"> <i class="fab fa-youtube fa-5x"></i> </div>
+      <div class="col"> <i class="fab fa-linkedin fa-5x"></i> </div>
+      <div class="col"> <i class="far fa-envelope fa-5x"></i> </div>
+    </div>
+  </div>
+{% endblock %}
