@@ -4,28 +4,29 @@
 {% block content %}
   <div class="info-bar content-header">Projects</div>
   <div class="info-content content-body">
-    <div class="row">
-      <div class="col-sm-1 text-center sm-hide"><i class="fab fa-python fa-4x"></i></div>
-      <div class="col-sm">
-        <span class="project-title"><a href="#" class="link">Python QR Code Reader <i class="fas fa-external-link-alt"></i></a></span><br>
-        <span class="project-desc">Program to read QR codes to a CSV file using your webcam. Using the pyzbar and imutils libraries.</span>
-      </div>
-      <div class="col-sm-2 project-stats sm-hide">
-        <i class="fas fa-eye"></i> 5<br>
-        <i class="fas fa-code"></i> Python
-      </div>
-    </div>
-    <hr> <!-- ### mid ### -->
-    <div class="row">
-      <div class="col-sm-1 text-center sm-hide"><i class="fab fa-js-square fa-4x"></i></div>
-      <div class="col-sm">
-        <span class="project-title"><a href="#" class="link">Messenger Bot <i class="fas fa-external-link-alt"></i></a></span><br>
-        <span class="project-desc">First NodeJS Application - Messenger bot allowing users to use certain commands and keep track of leaderboards for reactions and messages.</span>
-      </div>
-      <div class="col-sm-2 project-stats sm-hide">
-        <i class="fas fa-eye"></i> 2<br>
-        <i class="fas fa-code"></i> JavaScript
-      </div>
-    </div>
+    {% if projects %}
+      {% for project in projects %}
+        <div class="row">
+          <div class="col-sm-1 text-center sm-hide">
+            <i class="fab fa-{{ project.language }} fa-4x"></i>
+          </div>
+          <div class="col-sm">
+            <span class="project-title">
+              <a href="{{ project.url }}" class="link" target="_blank">{{ project.name }}
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </span><br>
+            <span class="project-desc">{{ project.description }}</span>
+          </div>
+          <div class="col-sm-2 project-stats sm-hide">
+            <i class="fas fa-eye"></i> {{ project.views}}<br>
+            <i class="fas fa-code"></i> {{ project.language }}
+          </div>
+        </div>
+        {% if not forloop.last %} <hr> {% endif %}
+      {% endfor %}
+    {% else %}
+      <strong>No projects :'( probs an error, otherwise give me motivation :)</strong>
+    {% endif %}
   </div>
 {% endblock %}
