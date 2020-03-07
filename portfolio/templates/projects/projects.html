@@ -8,7 +8,15 @@
       {% for project in projects %}
         <div class="row">
           <div class="col-sm-1 text-center sm-hide">
-            <i class="fab fa-{{ project.language }} fa-4x"></i>
+            {% if project.language|lower == "css" %}
+              <i class="fab fa-css3-alt fa-4x"></i>
+            {% elif project.language|lower == "html" %}
+              <i class="fab fa-html5 fa-4x"></i>
+            {% elif project.language|lower == "javascript" %}
+              <i class="fab fa-js-square fa-4x"></i>
+            {% else %}
+              <i class="fab fa-{{ project.language|lower }} fa-4x"></i>
+            {% endif %}
           </div>
           <div class="col-sm">
             <span class="project-title">
