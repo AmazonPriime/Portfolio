@@ -1,3 +1,4 @@
 from django.db import models
 
-# Create your models here.
+class Visitor(models.Model):
+    visitor_id = models.CharField(max_length = 64)
