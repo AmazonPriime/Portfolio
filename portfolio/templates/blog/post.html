@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="info-bar content-header">{{ post.title }}</div>
+  <div class="info-content content-body">
+    {{ post.content }}
+    <br>
+    {{ post.views }}
+    <br>
+    {{ post.likes }}
+  </div>
+{% endblock %}
