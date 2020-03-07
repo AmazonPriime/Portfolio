@@ -60,6 +60,15 @@ body {
   padding: 0.5em;
 }
 
+.item-content {
+  transition: 0.3s;
+}
+
+.item-content:hover {
+  background-color: rgba(0, 168, 255,1.0);
+  padding:1em;
+}
+
 @media only screen and (max-width: 770px) {
   .sm-hide {
     display: none;
@@ -76,8 +85,4 @@ body {
 
 .project-title {
   font-weight: bold;
-}
-
-.project-stats {
-
 }
