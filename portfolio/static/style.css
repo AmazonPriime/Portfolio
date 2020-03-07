@@ -1,7 +1,7 @@
 /* General Website CSS */
 
 body {
-  background-color: rgba(0, 168, 255,1.0);
+  background-color: rgba(53, 59, 72,1.0);
 }
 
 .header {
@@ -9,13 +9,12 @@ body {
 }
 
 .navbar-custom {
-  background-color: rgba(245, 246, 250,1.0);
-  color: rgba(47, 54, 64,1.0);
+  background-color: rgba(47, 54, 64,1.0);
 }
 
 .body {
-  color: rgba(47, 54, 64,1.0);
-  background-color: rgba(245, 246, 250,1.0);
+  color: rgba(245, 246, 250,1.0);
+  background-color: rgba(47, 54, 64,1.0);
   padding-top: 0.5em;
 }
 
@@ -26,13 +25,24 @@ body {
 
 .link {
   text-decoration: none !important;
-  color: rgba(47, 54, 64,1.0) !important;
+  color: rgba(220, 221, 225,1.0) !important;
+  transition: 0.3s;
+}
+
+.link:hover {
+  color: rgba(0, 168, 255,1.0) !important;
 }
 
 .info-bar {
-  background-color: rgba(220, 221, 225,1.0);
   padding: 0.5em;
+  background-color: rgba(64, 115, 158,1.0);
   border-bottom: 1px solid black;
+  margin-bottom: 0px;
+}
+
+.info-content {
+  background-color: rgba(53, 59, 72,1.0);
+  padding: 1em;
 }
 
 .info-container {
@@ -43,20 +53,23 @@ body {
 
 .content-header {
   font-size: 2em;
-  background-color: rgba(220, 221, 225,1.0);
   padding: 0.25em;
-  border-bottom: 1px solid black;
 }
 
 .content-body {
-  padding: 0.25em;
-  margin-top: 1em;
+  padding: 0.5em;
 }
 
 @media only screen and (max-width: 770px) {
   .sm-hide {
     display: none;
   }
+}
+
+/* Header specific */
+.img-custom {
+  border: 0.2em solid rgba(220, 221, 225,1.0);
+  border-radius: 1em;
 }
 
 /* Projects Specific CSS */
