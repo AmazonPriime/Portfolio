@@ -22,7 +22,7 @@ def post(request, slug):
     views = View.objects.filter(post__title = post.title, viewer_id = key)
     if not views:
         views = View(viewer_id = key, post = post)
-        viewers.save()
+        views.save()
         post.views += 1
         post.save()
 

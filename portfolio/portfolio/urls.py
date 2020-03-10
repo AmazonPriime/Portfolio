@@ -17,12 +17,14 @@ from django.contrib import admin
 from django.urls import path, re_path
 from portfolio.views import index as main_index
 from projects.views import index as project_index
+from projects.views import views as project_views
 from blog.views import index as blog_index
 from blog.views import post as blog_post
 
 urlpatterns = [
     path('', main_index, name = 'index'),
     path('projects/', project_index, name = 'projects'),
+    re_path(r'^projects/(?P<name>[\w\-]+)/$', project_views, name = 'project_views'),
     path('blog/', blog_index, name = 'blog'),
     re_path(r'^blog/(?P<slug>[\w\-]+)/$', blog_post, name = 'blog_post'),
     path('admin/', admin.site.urls),

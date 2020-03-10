@@ -10,14 +10,8 @@ def update_visitors(request):
         key = request.session.session_key
     else:
         key = request.session.session_key
-
     visitor = Visitor.objects.filter(visitor_id = key)
     if not visitor:
         visitor = Visitor(visitor_id = key)
         visitor.save()
-
-    return
-
-@register.simple_tag
-def visitors_count():
-    return len(Visitor.objects.all())
+    return ""

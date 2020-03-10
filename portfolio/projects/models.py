@@ -12,3 +12,7 @@ class Project(models.Model):
 
     def __str__(self):
         return self.name
+
+class View(models.Model):
+    viewer_id = models.CharField(max_length = 64)
+    project = models.ForeignKey(Project, on_delete = models.CASCADE)

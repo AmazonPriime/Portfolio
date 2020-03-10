@@ -65,7 +65,7 @@ body {
 }
 
 .item-content:hover {
-  background-color: rgba(0, 168, 255,1.0);
+  background-color: rgba(72, 126, 176,1.0);
   padding:1em;
 }
 
@@ -85,4 +85,9 @@ body {
 
 .project-title {
   font-weight: bold;
+}
+
+.project-dates {
+  color: rgba(127, 143, 166,1.0);
+  font-size: 0.8em;
 }
