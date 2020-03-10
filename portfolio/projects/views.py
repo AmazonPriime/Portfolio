@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 from projects.models import Project, View
 
 def index(request):
@@ -8,7 +9,7 @@ def index(request):
 
 def views(request, name):
     try:
-        project = Post.objects.get(name = name)
+        project = Project.objects.get(name = name)
     except:
         return render(request, '404.html')
 
@@ -18,9 +19,9 @@ def views(request, name):
 
     views = View.objects.filter(project__name = project.name, viewer_id = key)
     if not views:
-        views = View(viewer_id = key, post = post)
+        views = View(viewer_id = key, project = project)
         views.save()
         project.views += 1
         project.save()
 
-    return HttpResponseRedirect(request.GET.get(project.url))
+    return HttpResponseRedirect(project.url)

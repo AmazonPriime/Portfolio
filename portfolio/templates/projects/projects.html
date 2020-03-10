@@ -20,7 +20,7 @@
           </div>
           <div class="col-sm">
             <span class="project-title">
-              <a href="{{ project.url }}" class="link" target="_blank">{{ project.name }}
+              <a href="{% url 'project_views' project.name %}" class="link" target="_blank">{{ project.name }}
                 <i class="fas fa-external-link-alt"></i>
               </a>
             </span><br>
