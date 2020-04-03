@@ -1,18 +1,12 @@
-/* General Website CSS */
-
 body {
   background-color: rgba(53, 59, 72,1.0);
-}
-
-.header {
-  background-color: rgba(0, 151, 230,1.0);
 }
 
 .navbar-custom {
   background-color: rgba(47, 54, 64,1.0);
 }
 
-.body {
+.content {
   color: rgba(245, 246, 250,1.0);
   background-color: rgba(47, 54, 64,1.0);
   padding-top: 0.5em;
@@ -33,10 +27,19 @@ body {
   color: rgba(0, 168, 255,1.0) !important;
 }
 
+.img-custom {
+  border: 0.1em solid rgba(64, 115, 158,1.0);
+  border-radius: 1em;
+}
+
+.info-container {
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+}
+
 .info-bar {
   padding: 0.5em;
   background-color: rgba(64, 115, 158,1.0);
-  border-bottom: 1px solid black;
   margin-bottom: 0px;
 }
 
@@ -45,19 +48,9 @@ body {
   padding: 1em;
 }
 
-.info-container {
-  padding-bottom: 1em;
-  padding-right: 0.5em;
-  padding-left: 0.5em;
-}
-
 .content-header {
   font-size: 2em;
   padding: 0.25em;
-}
-
-.content-body {
-  padding: 0.5em;
 }
 
 .item-content {
@@ -75,19 +68,11 @@ body {
   }
 }
 
-/* Header specific */
-.img-custom {
-  border: 0.2em solid rgba(220, 221, 225,1.0);
-  border-radius: 1em;
-}
-
-/* Projects Specific CSS */
-
-.project-title {
+.item-title {
   font-weight: bold;
 }
 
-.project-dates {
+.item-dates {
   color: rgba(127, 143, 166,1.0);
   font-size: 0.8em;
 }

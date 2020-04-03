@@ -3,14 +3,12 @@
 
 {% block content %}
   <div class="info-bar content-header">Projects</div>
-  <div class="info-content content-body">
+  <div class="info-content">
     {% if projects %}
       {% for project in projects %}
         <div class="row item-content">
           <div class="col-sm-1 text-center sm-hide" data-toggle="tooltip" title="{{ project.language }}">
-            {% if project.language|lower == "css" %}
-              <i class="fab fa-css3-alt fa-4x"></i>
-            {% elif project.language|lower == "html" %}
+            {% if project.language|lower == "html" or project.language|lower == "css" %}
               <i class="fab fa-html5 fa-4x"></i>
             {% elif project.language|lower == "javascript" %}
               <i class="fab fa-js-square fa-4x"></i>
@@ -19,20 +17,20 @@
             {% endif %}
           </div>
           <div class="col-sm">
-            <span class="project-title">
+            <span class="item-title">
               <a href="{% url 'project_views' project.name %}" class="link" target="_blank">{{ project.name }}
                 <i class="fas fa-external-link-alt"></i>
               </a>
             </span><br>
-            <span class="project-desc">{{ project.description }}</span> <br>
-            <div class="project-dates">
+            <span>{{ project.description }}</span> <br>
+            <div class="item-dates">
               <span data-toggle="tooltip" title="Project Created"><i class="fas fa-calendar-alt"></i> {{ project.date_created }}</span>
               | <span data-toggle="tooltip" title="Last Updated"><i class="fas fa-arrow-alt-circle-up"></i> {{ project.date_updated }}</span>
             </div>
           </div>
-          <div class="col-sm-2 project-stats sm-hide">
-            <i class="fas fa-eye" data-toggle="tooltip" title="Views"></i> {{ project.views}}<br>
-            <i class="fas fa-code" data-toggle="tooltip" title="Language"></i> {{ project.language }}
+          <div class="col-sm-2 sm-hide">
+            <span data-toggle="tooltip" title="Views"><i class="fas fa-eye"></i> {{ project.views}}</span><br>
+            <span data-toggle="tooltip" title="Language"><i class="fas fa-code"></i> {{ project.language }}</span>
           </div>
         </div>
         {% if not forloop.last %} <hr> {% endif %}

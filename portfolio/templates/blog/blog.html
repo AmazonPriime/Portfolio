@@ -3,21 +3,25 @@
 
 {% block content %}
   <div class="info-bar content-header">Blog</div>
-  <div class="info-content content-body">
+  <div class="info-content">
     {% if posts %}
       {% for post in posts %}
         <div class="row item-content">
           <div class="col-sm">
-            <span class="project-title"><a href="#" class="link">{{ post.title }}</a></span><br>
-            <span class="project-desc">
-              {% if post.description|length > 120 %}
-                {{ post.description|slice:"117" }}...
+            <span class="item-title"><a href="{% url 'blog_post' post.title_slug %}" class="link">{{ post.title }}</a></span><br>
+            <span>
+              {% if post.content|length > 120 %}
+                {{ post.content|slice:"117" }}...
               {% else %}
-                {{ post.description }}
+                {{ post.content }}
               {% endif %}
             </span>
+            <div class="item-dates">
+              <span data-toggle="tooltip" title="Project Created"><i class="fas fa-calendar-alt"></i> {{ post.date_created }}</span>
+              | <span data-toggle="tooltip" title="Last Updated"><i class="fas fa-arrow-alt-circle-up"></i> {{ post.date_updated }}</span>
+            </div>
           </div>
-          <div class="col-sm-1 project-stats sm-hide">
+          <div class="col-sm-1 sm-hide">
             <i class="fas fa-eye"></i> {{ post.views }}<br>
             <i class="far fa-thumbs-up"></i> {{ post.likes }}<br>
           </div>
