@@ -2,23 +2,33 @@
 {% load static %}
 
 {% block content %}
-  <div class="info-bar content-header">{{ post.title }}</div>
-  <div class="info-content content-body">
-    <div class="blog-dates">
-      <span data-toggle="tooltip" title="Date Posted">
+  <div class="info-bar content-header">
+    {% if request.user.is_superuser %}
+      <div class="row">
+        <div class="col">
+          {{ post.title }}
+        </div>
+        <div class="col text-right">
+          <a class="btn btn-custom">Edit Post</a>
+        </div>
+      </div>
+    {% else %}
+      {{ post.title }}
+    {% endif %}
+  </div>
+  <div class="info-content">
+    {{ post.content }}
+    <hr>
+    <div class="text-center item-dates">
+      <span data-toggle="tooltip" title="Views">
+        <i class="fas fa-eye"></i> {{ post.views }} views
+      </span>
+      <span data-toggle="tooltip" title="Post Created">
         <i class="fas fa-calendar-alt"></i> {{ post.date_created }}
       </span>
-      | <span data-toggle="tooltip" title="Last Edited">
+      <span data-toggle="tooltip" title="Last Edited">
         <i class="fas fa-arrow-alt-circle-up"></i> {{ post.date_updated }}
       </span>
-    </div><br>
-    <span class="blog-content">
-      {{ post.content }}
-    </span>
-    <hr>
-    <div class="blog-stats">
-      <i class="fas fa-eye"></i> {{ post.views }}
-      <i class="far fa-thumbs-up"></i> {{ post.likes }}
     </div>
   </div>
 {% endblock %}

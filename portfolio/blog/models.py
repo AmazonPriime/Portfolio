@@ -8,7 +8,7 @@ class Post(models.Model):
     content = models.TextField()
     views = models.IntegerField(default = 0)
     likes = models.IntegerField(default = 0)
-    date_created = models.DateField(default = datetime.now)
+    date_created = models.DateTimeField(default = datetime.now)
     date_updated = models.DateTimeField(default = datetime.now)
 
     def save(self, *args, **kwargs):

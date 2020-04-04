@@ -24,8 +24,8 @@
         <div class="collapse navbar-collapse" id="nav">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item {% if request.path == '/'%}active{% endif %}"> <a class="nav-link" href="{% url 'index' %}">Home</a> </li>
-            <li class="nav-item {% if request.path == '/projects/'%}active{% endif %}"> <a class="nav-link" href="{% url 'projects' %}">Projects</a> </li>
-            <li class="nav-item {% if request.path == '/blog/'%}active{% endif %}"> <a class="nav-link" href="{% url 'blog' %}">Blog</a> </li>
+            <li class="nav-item {% if '/projects/' in request.path and request.path != '/' %}active{% endif %}"> <a class="nav-link" href="{% url 'projects' %}">Projects</a> </li>
+            <li class="nav-item {% if '/blog/' in request.path and request.path != '/' %}active{% endif %}"> <a class="nav-link" href="{% url 'blog' %}">Blog</a> </li>
           </ul>
         </div>
       </div>
