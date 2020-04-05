@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title_block %} {{ post.title }} {% endblock %}
 
 {% block content %}
   {% if request.user.is_superuser %}
@@ -57,6 +58,5 @@
     </div>
   {% if request.user.is_superuser %}
     </form>
-    <script src="{% static 'js/editpost.js' %}"></script>
   {% endif %}
 {% endblock %}
