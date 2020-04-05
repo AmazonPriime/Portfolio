@@ -14,8 +14,8 @@ Icon?
 
 # - DJANGO
 db.sqlite3
-static/admin/
-static/ckeditor/
+*/static/admin/
+*/static/ckeditor/
 
 
 # - OTHER

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="info-bar content-header">
+        Admin Login
+    </div>
+
+    <div class="info-content">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col">
+                {% if form.errors and not form.non_field_errors %}
+                    <p class="errornote">
+                        {% if form.errors.items|length == 1 %}
+                            Please correct the error below.
+                        {% else %}
+                            Please correct the errors below
+                        {% endif %}
+                    </p>
+                {% endif %}
+                {% if form.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                        <p class="errornote"> {{ error }} </p>
+                    {% endfor %}
+                {% endif %}
+                <form action="{{ app_path }}" method="post" id="login-form">
+                    {% csrf_token %}
+                    {{ form.username.errors }}
+                    <input type="text" name="username" id="id_username" placeholder="Username" class="form-control" required>
+                    <br>
+                    {{ form.password.errors }}
+                    <input type="password" name="password" id="id_password" placeholder="Password" class="form-control" required>
+                    <input type="hidden" name="next" value="{% url 'index' %}">
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-custom" style="margin-top:1em;width:100%;">Login</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+{% endblock %}
