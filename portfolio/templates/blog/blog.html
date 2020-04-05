@@ -21,7 +21,7 @@
       {% for post in posts %}
         <div class="row item-content">
           <div class="col-sm">
-            <span class="item-title"><a href="{% url 'blog_post' post.title_slug %}" class="link">{{ post.title }}</a></span><br>
+            <span class="item-title"><a href="{% url 'blog_post' post.id %}" class="link">{{ post.title }}</a></span><br>
             <span>
               {% if post.content|length > 120 %}
                 {{ post.content|slice:"117" }}...

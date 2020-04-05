@@ -26,6 +26,6 @@ urlpatterns = [
     path('projects/', project_index, name = 'projects'),
     re_path(r'^projects/(?P<name>.*)/$', project_views, name = 'project_views'),
     path('blog/', blog_index, name = 'blog'),
-    re_path(r'^blog/(?P<slug>[\w\-]+)/$', blog_post, name = 'blog_post'),
+    re_path(r'^blog/(?P<id>.*)/$', blog_post, name = 'blog_post'),
     path('admin/', admin.site.urls),
 ]

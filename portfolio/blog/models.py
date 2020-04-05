@@ -1,11 +1,12 @@
 from django.db import models
 from datetime import datetime
 from django.template.defaultfilters import slugify
+from ckeditor.fields import RichTextField
 
 class Post(models.Model):
     title = models.CharField(max_length = 128, unique = True)
     title_slug = models.SlugField(unique = True)
-    content = models.TextField()
+    content = RichTextField()
     views = models.IntegerField(default = 0)
     likes = models.IntegerField(default = 0)
     date_created = models.DateTimeField(default = datetime.now)
