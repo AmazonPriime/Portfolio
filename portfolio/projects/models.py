@@ -7,8 +7,8 @@ class Project(models.Model):
     language = models.CharField(max_length = 128)
     views = models.IntegerField(default = 0)
     url = models.URLField(default = "https://github.com")
-    date_created = models.DateField(default = datetime.now)
-    date_updated = models.DateField(default = datetime.now)
+    date_created = models.DateTimeField(default = datetime.now)
+    date_updated = models.DateTimeField(default = datetime.now)
 
     def __str__(self):
         return self.name

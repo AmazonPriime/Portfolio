@@ -2,7 +2,9 @@
 {% load static %}
 
 {% block content %}
-  <div class="info-bar content-header">
+  {% include 'projects/latest.html' %}
+  {% include 'projects/newest.html' %}
+  <div class="lead info-bar content-header">
     {% if request.user.is_superuser %}
       <div class="row">
         <div class="col">
@@ -32,7 +34,7 @@
             <div class="item-dates">
               <span data-toggle="tooltip" title="Post Created">
                 <i class="fas fa-calendar-alt"></i> {{ post.date_created }}
-              </span> |
+              </span>
               <span data-toggle="tooltip" title="Last Updated">
                 <i class="fas fa-arrow-alt-circle-up"></i> {{ post.date_updated }}
               </span>
