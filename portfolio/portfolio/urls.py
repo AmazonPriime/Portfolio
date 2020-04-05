@@ -20,12 +20,14 @@ from projects.views import index as project_index
 from projects.views import views as project_views
 from blog.views import index as blog_index
 from blog.views import post as blog_post
+from blog.views import add as blog_add
 
 urlpatterns = [
     path('', main_index, name = 'index'),
     path('projects/', project_index, name = 'projects'),
     re_path(r'^projects/(?P<name>.*)/$', project_views, name = 'project_views'),
     path('blog/', blog_index, name = 'blog'),
+    path('blog/add/', blog_add, name = 'add_blog_post'),
     re_path(r'^blog/(?P<id>.*)/$', blog_post, name = 'blog_post'),
     path('admin/', admin.site.urls),
 ]

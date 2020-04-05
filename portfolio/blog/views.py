@@ -1,8 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from datetime import datetime
+from django.urls import reverse
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from blog.models import Post, Like, View
 from blog.forms import PostForm
+from datetime import datetime
 import json
 
 def index(request):
@@ -41,3 +44,18 @@ def post(request, id):
         context_dict['post_form'] = PostForm(instance = post)
 
     return render(request, 'blog/post.html', context_dict)
+
+@login_required(login_url='index')
+def add(request):
+    if request.method == 'POST':
+        try:
+            post_form = PostForm(request.POST)
+            if post_form.is_valid:
+                post = post_form.save()
+            return redirect(reverse('blog_post', args = [post.id]))
+        except:
+            messages.error(request, "Blog post title is already in use.")
+    else:
+        post_form = PostForm()
+
+    return render(request, 'blog/addpost.html', {'post_form' : post_form})
