@@ -30,17 +30,18 @@ def get_repositories(session):
 def get_projects(repos, session):
     projects = {}
     for repo in repos:
-        projects[repo['id']] = {
-            'name' : repo['name'],
-            'desc' : repo['description'],
-            'url' : repo['html_url'],
-            'date_c' : parse(repo['created_at']),
-            'date_u' : parse(repo['updated_at']),
-            'main_lang' : repo['language'],
-            'langs' : json.loads(session.get(repo['languages_url']).content), # language:size(bytes)
-            'stars' : int(repo['stargazers_count']),
-            'watchers' : int(repo['watchers_count'])
-        }
+        if not repo['private']:
+            projects[repo['id']] = {
+                'name' : repo['name'],
+                'desc' : repo['description'],
+                'url' : repo['html_url'],
+                'date_c' : parse(repo['created_at']),
+                'date_u' : parse(repo['updated_at']),
+                'main_lang' : repo['language'],
+                'langs' : json.loads(session.get(repo['languages_url']).content), # language:size(bytes)
+                'stars' : int(repo['stargazers_count']),
+                'watchers' : int(repo['watchers_count'])
+            }
     return projects
 
 # gathers all languages used and returns a set
