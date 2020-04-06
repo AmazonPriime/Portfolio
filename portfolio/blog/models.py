@@ -8,7 +8,6 @@ class Post(models.Model):
     title_slug = models.SlugField(unique = True)
     content = RichTextField()
     views = models.IntegerField(default = 0)
-    likes = models.IntegerField(default = 0)
     date_created = models.DateTimeField(default = datetime.now)
     date_updated = models.DateTimeField(default = datetime.now)
 
@@ -21,8 +20,4 @@ class Post(models.Model):
 
 class View(models.Model):
     viewer_id = models.CharField(max_length = 64)
-    post = models.ForeignKey(Post, on_delete = models.CASCADE)
-
-class Like(models.Model):
-    liker_id = models.CharField(max_length = 64)
     post = models.ForeignKey(Post, on_delete = models.CASCADE)

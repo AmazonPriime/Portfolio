@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from blog.models import Post, Like, View
+from blog.models import Post, View
 from blog.forms import PostForm
 from datetime import datetime
 import json
