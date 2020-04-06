@@ -2,7 +2,7 @@ from django.db import models
 from datetime import datetime
 
 class Language(models.Model):
-    name = models.CharField(primary_key = True, max_length = 32)
+    name = models.CharField(primary_key = True, max_length = 64)
 
     def __str__(self):
         return self.name
@@ -14,7 +14,7 @@ class Project(models.Model):
     url = models.URLField(default = "https://github.com/amazonpriime")
     date_created = models.DateTimeField(default = datetime.now)
     date_updated = models.DateTimeField(default = datetime.now)
-    language = models.ForeignKey(Language, on_delete = models.CASCADE)
+    language = models.ForeignKey(Language, on_delete = models.CASCADE, blank = True, null = True)
     stars = models.IntegerField(default = 0)
     watchers = models.IntegerField(default = 0)
     views = models.IntegerField(default = 0)
