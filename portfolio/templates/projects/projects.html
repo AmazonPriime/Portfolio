@@ -3,7 +3,29 @@
 
 {% block content %}
   {% include 'projects/newest.html' %} <hr>
-  <div class="lead info-bar content-header">Projects</div>
+  <div class="lead info-bar content-header">
+    <div class="row">
+      <div class="col">
+        {% if lang %}
+          {{ lang }} Projects
+        {% else %}
+          All Projects
+        {% endif %}
+      </div>
+      <div class="col text-right">
+        <div class="dropdown">
+          <button class="btn btn-custom dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown">
+            Language
+          </button>
+          <div class="dropdown-menu">
+              {% for language in languages %}
+                  <a class="dropdown-item" href="{% url 'projects_lang' language %}">{{ language }}</a>
+              {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="info-content">
     {% if page_obj %}
       {% for project in page_obj %}

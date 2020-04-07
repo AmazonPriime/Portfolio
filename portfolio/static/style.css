@@ -90,6 +90,11 @@ body {
   background-color: rgba(127, 143, 166,1.0);
   font-weight: bold;
   color: rgba(245, 246, 250,1.0);
+  transition: 0.3s;
+}
+
+.btn-custom:hover {
+  color: rgba(0, 168, 255,1.0);
 }
 
 .latest {
@@ -116,4 +121,9 @@ body {
 
 .disabled {
   opacity: 25%;
+}
+
+.filter {
+  background-color: rgba(53, 59, 72,1.0);
+  padding-top: 0.25em;
 }

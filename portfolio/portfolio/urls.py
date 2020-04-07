@@ -25,7 +25,8 @@ from blog.views import add as blog_add
 urlpatterns = [
     path('', main_index, name = 'index'),
     path('projects/', project_index, name = 'projects'),
-    re_path(r'^projects/(?P<name>.*)/$', project_views, name = 'project_views'),
+    re_path(r'projects/(?P<language>.*)/$', project_index, name = 'projects_lang'),
+    re_path(r'^project/(?P<name>.*)/$', project_views, name = 'project_views'),
     path('blog/', blog_index, name = 'blog'),
     path('blog/add/', blog_add, name = 'add_blog_post'),
     re_path(r'^blog/(?P<id>.*)/$', blog_post, name = 'blog_post'),
