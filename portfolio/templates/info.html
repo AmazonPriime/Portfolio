@@ -1,0 +1,38 @@
+{% load latest %}
+{% load stats %}
+{% get_newest_project as n_project %}
+{% get_updated_project as u_project %}
+{% get_visitors as visitors %}
+{% get_projects as projects %}
+{% get_languages as languages %}
+{% get_most_used_language as language %}
+
+<div class="lead info-bar">Site Statistics</div>
+<div class="info-content" style="padding-left:0em;padding-right:0em;">
+    <div class="row">
+        <div class="text-center col-sm-4 info-item">
+            <span>Latest Project</span> <br> 
+            <a class="link info-value" href="{% url 'project_views' n_project.name %}" target="_blank">{{ n_project.name }} <i class="fas fa-external-link-alt"></i></a>
+        </div>
+        <div class="text-center col-sm-4 info-item">
+            <span>Recently Updated</span> <br> 
+            <a class="link info-value" href="{% url 'project_views' u_project.name %}" target="_blank">{{ u_project.name }} <i class="fas fa-external-link-alt"></i></a>
+        </div>
+        <div class="text-center col-sm-4 info-item">
+            <span>Site Visitors</span> <br> 
+            <span class="info-value">{{ visitors }}</span>
+        </div> 
+        <div class="text-center col-sm-4 info-item">
+            <span>Total Projects</span> <br> 
+            <span class="info-value">{{ projects }}</span>
+        </div> 
+        <div class="text-center col-sm-4 info-item">
+            <span>Languages Used</span> <br> 
+            <span class="info-value">{{ languages }}</span>
+        </div>
+        <div class="text-center col-sm-4 info-item">
+            <span>Most Used Language</span> <br> 
+            <span class="info-value">{{ language }}</span>
+        </div> 
+    </div>
+</div>

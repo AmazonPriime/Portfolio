@@ -1,14 +1,24 @@
+:root {
+  --colour-one: rgba(53, 59, 72,1.0);       /* lighter background colour */
+  --colour-two: rgba(47, 54, 64,1.0);       /* darker background colour */
+  --colour-three: rgba(245, 246, 250,1.0);  /* text colour */
+  --colour-four: rgba(0, 168, 255,1.0);     /* hover for links and buttons text */
+  --colour-five: rgba(64, 115, 158,1.0);    /* info bar, img border pagnation item background colour */
+  --colour-six: rgba(72, 126, 176,1.0);     /* hover on project and blog post */
+  --colour-seven: rgba(127, 143, 166,1.0);  /* button background, muted colour for dates and stats values */
+}
+
 body {
-  background-color: rgba(53, 59, 72,1.0);
+  background-color: var(--colour-one);
 }
 
 .navbar-custom {
-  background-color: rgba(47, 54, 64,1.0);
+  background-color: var(--colour-two);
 }
 
 .content {
-  color: rgba(245, 246, 250,1.0);
-  background-color: rgba(47, 54, 64,1.0);
+  color: var(--colour-three);
+  background-color: var(--colour-two);
   padding-top: 0.5em;
 }
 
@@ -17,19 +27,24 @@ body {
   padding: 0.5em;
 }
 
+.about-text {
+  font-size: 1.15em;
+  display: block;
+  padding-bottom: 0.25em;
+}
+
 .link {
   text-decoration: none !important;
-  color: rgba(220, 221, 225,1.0) !important;
+  color: var(--colour-three) !important;
   transition: 0.3s;
 }
 
 .link:hover {
-  color: rgba(0, 168, 255,1.0) !important;
+  color: var(--colour-four) !important;
 }
 
 .img-custom {
-  border: 0.1em solid rgba(64, 115, 158,1.0);
-  border-radius: 1em;
+  border: 2px solid var(--colour-five);
 }
 
 .info-container {
@@ -39,12 +54,12 @@ body {
 
 .info-bar {
   padding: 0.5em;
-  background-color: rgba(64, 115, 158,1.0);
+  background-color: var(--colour-five);
   margin-bottom: 0px;
 }
 
 .info-content {
-  background-color: rgba(53, 59, 72,1.0);
+  background-color: var(--colour-one);
   padding: 1em;
 }
 
@@ -64,7 +79,7 @@ body {
 }
 
 .item-content:hover {
-  background-color: rgba(72, 126, 176,1.0);
+  background-color: var(--colour-six);
   padding:1em;
 }
 
@@ -79,7 +94,7 @@ body {
 }
 
 .item-dates {
-  color: rgba(127, 143, 166,1.0);
+  color: var(--colour-seven);
   font-size: 0.8em;
 }
 .item-dates span {
@@ -87,24 +102,20 @@ body {
 }
 
 .btn-custom {
-  background-color: rgba(127, 143, 166,1.0);
+  background-color: var(--colour-seven);
   font-weight: bold;
-  color: rgba(245, 246, 250,1.0);
+  color: var(--colour-three);
   transition: 0.3s;
 }
 
 .btn-custom:hover {
-  color: rgba(0, 168, 255,1.0);
-}
-
-.latest {
-  border: 1px solid white;
+  color: var(--colour-four);
 }
 
 .pagnation-bar {
   width: 75%;
   margin: 0 auto;
-  background-color: rgba(47, 54, 64,1.0);
+  background-color: var(--colour-two);
 }
 
 @media only screen and (max-width: 770px) {
@@ -114,7 +125,7 @@ body {
 }
 
 .pagnation-btn {
-  background-color: rgba(64, 115, 158,1.0);
+  background-color: var(--colour-five);
   height: 100%;
   padding: 0.25em;
 }
@@ -123,7 +134,15 @@ body {
   opacity: 25%;
 }
 
-.filter {
-  background-color: rgba(53, 59, 72,1.0);
-  padding-top: 0.25em;
+.info-item {
+  padding: 0.5em;
+  transition: 0.3s;
+}
+
+.info-item:hover {
+  background-color: var(--colour-two);
+}
+
+.info-value {
+  color: var(--colour-seven) !important;
 }

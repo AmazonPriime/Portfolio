@@ -2,20 +2,27 @@
 {% load static %}
 
 {% block content %}
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-3 text-center">
-        <img src="{% static 'images/profile.png' %}" class="img-fluid img-custom">
-      </div>
-      <div class="col-sm lead text-justify">
-        <p>Hi, my name is Luke Holland and this is my website.</p>
-        <p>
-          I'm currently a student at the University of Glasgow stuyding Software Engineering. This is my porfolio website and will
-          be used to showcase my projects I have worked on in my free time and provide links to my social media and developer accounts.
-        </p>
-        <p>If you see any project on here you like feel free to check it out on Github or contact me regarding it if you have any questions or requests.</p>
+  <div class="info-container">
+    <div class="lead text-center info-bar">
+      About
+    </div>
+    <div class="info-content">
+      <div class="row">
+        <div class="col-sm-3">
+          <img src="{% static 'images/profile.png' %}" class="img-fluid img-custom">
+        </div>
+        <div class="col-sm">
+          <span class="about-text">My name is Luke Holland and I'm currently studying at the <a class="link" target="blank_" href="#">University of Glasgow</a>.</span>
+          <span class="about-text">Welcome to my website, here you will find my projects I've worked on in my free time and ones I've made for University work.</span>
+          <span class="about-text">This website also provides ways I can be contacted, whether it be about projects or just someone wanting to get in touch. I also have a small
+          blog here which I plan to make programming and computer related tutorials to help people.</span>
+        </div>
       </div>
     </div>
+  </div>
+  <hr>
+  <div class="text-center info-container">
+    {% include 'info.html' %}
   </div>
   <hr>
   <div class="info-container">
