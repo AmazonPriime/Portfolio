@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title_block %} Lost are we? {% endblock %}
+
 {% block content %}
-  F in the chat boys this page does not exist.
+  <div class="text-center">
+    <p class="lead">I think you may be lost, try going to a page that exists.</p>
+    <img src="{% static 'images/lost.gif' %}" class="img-fluid">
+  </div>
 {% endblock %}
