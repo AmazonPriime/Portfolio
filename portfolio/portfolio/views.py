@@ -10,8 +10,8 @@ def index(request):
         langs = json.loads(project.language_str.replace("'", '"'))
         for language in langs:
             if not language in languages:
-                languages[language] = langs[language]
+                languages[language] = 1
             else:
-                languages[language] += langs[language]
+                languages[language] += 1
     context_dict['languages'] = languages
     return render(request, 'index.html', context_dict)
