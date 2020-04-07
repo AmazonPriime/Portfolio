@@ -1,0 +1,33 @@
+<div class="text-center pagnation-bar">
+    <div class="row">
+    <div class="col">
+        {% if page_obj.has_previous %}
+        <div class="pagnation-btn">
+            <a class="link" href="?page={{ page_obj.previous_page_number }}">previous</a>
+        </div>
+        {% else %}
+        <div class="pagnation-btn disabled">
+            <span>previous</span>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="col-3">
+        <div style="padding: 0.25em">
+        {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+        </div>
+    </div>
+
+    <div class="col">
+        {% if page_obj.has_next %}
+        <div class="pagnation-btn">
+            <a class="link" href="?page={{ page_obj.next_page_number }}">next</a>
+        </div>
+        {% else %}
+        <div class="pagnation-btn disabled">
+            <span>next</span>
+        </div>
+        {% endif %}
+    </div>
+    </div>
+</div>

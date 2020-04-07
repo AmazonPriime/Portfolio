@@ -15,6 +15,7 @@ class Project(models.Model):
     date_created = models.DateTimeField(default = datetime.now)
     date_updated = models.DateTimeField(default = datetime.now)
     language = models.ForeignKey(Language, on_delete = models.CASCADE, blank = True, null = True)
+    language_str = models.CharField(max_length = 256, default = '[]')
     stars = models.IntegerField(default = 0)
     watchers = models.IntegerField(default = 0)
     views = models.IntegerField(default = 0)

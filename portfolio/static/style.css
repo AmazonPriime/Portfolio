@@ -95,3 +95,25 @@ body {
 .latest {
   border: 1px solid white;
 }
+
+.pagnation-bar {
+  width: 75%;
+  margin: 0 auto;
+  background-color: rgba(47, 54, 64,1.0);
+}
+
+@media only screen and (max-width: 770px) {
+  .pagnation-bar {
+    width: 100%;
+  }
+}
+
+.pagnation-btn {
+  background-color: rgba(64, 115, 158,1.0);
+  height: 100%;
+  padding: 0.25em;
+}
+
+.disabled {
+  opacity: 25%;
+}

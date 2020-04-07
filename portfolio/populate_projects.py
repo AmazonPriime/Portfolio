@@ -76,6 +76,7 @@ def add_projects(projects):
         project_obj.date_created = projects[project]['date_c']
         project_obj.date_updated = projects[project]['date_u']
         project_obj.language = language
+        project_obj.language_str = str(projects[project]['langs'])
         project_obj.stars = projects[project]['stars']
         project_obj.watchers = projects[project]['watchers']
         project_obj.save()

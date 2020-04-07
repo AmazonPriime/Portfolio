@@ -19,17 +19,45 @@
   </div>
   <hr>
   <div class="info-container">
-    <p class="lead text-center info-bar">Statistics</p>
-    <div class="info-content">
+    <p class="lead text-center info-bar">Programming Languages I've Used</p>
+    <div class="info-content text-center">
+      <script type="text/javascript">
+        google.charts.load("current", {packages:["corechart"]});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+            ['Language', 'Bytes Written'],
+            {% for lang, size in languages.items %}
+              ['{{ lang }}', {{ size }}],
+            {% endfor %}
+          ]);
+
+          var options = {
+            pieHole: 0.2,
+            pieSliceBorderColor: 'transparent',
+            backgroundColor: 'transparent',
+            chartArea:{
+              width:"100%",
+              height:"100%"
+            },
+            legend: {
+              position: 'right',
+              textStyle: {
+                color: 'white'
+              }
+            }
+          };
+
+          var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+          chart.draw(data, options);
+        }
+      </script>
       <div class="row">
-        <div class="col text-center">
-          Website Stats <br>
-          <img class="img-fluid" src="{% static 'images/pie.png' %}">
+        <div class="col-sm-3"></div>
+        <div class="col">
+          <div id="donutchart" style="display: inline-block;margin: 0 auto;width:100%;height:auto"></div>
         </div>
-        <div class="col text-center">
-          Project Stats <br>
-          <img class="img-fluid" src="{% static 'images/pie.png' %}">
-        </div>
+        <div class="col-sm-3"></div>
       </div>
     </div>
   </div>

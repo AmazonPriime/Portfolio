@@ -5,8 +5,8 @@
   {% include 'projects/newest.html' %} <hr>
   <div class="lead info-bar content-header">Projects</div>
   <div class="info-content">
-    {% if projects %}
-      {% for project in projects %}
+    {% if page_obj %}
+      {% for project in page_obj %}
         <div class="row item-content">
           <div class="col-sm-1 text-center sm-hide" data-toggle="tooltip" title="{{ project.language }}">
             {% if project.language|lower == "html" or project.language|lower == "css" %}
@@ -40,8 +40,8 @@
         </div>
         {% if not forloop.last %} <hr> {% endif %}
       {% endfor %}
-    {% else %}
-      <strong>No projects :'( probs an error, otherwise give me motivation :)</strong>
+      <hr>
+      {% include 'pagnation.html' with page_obj=page_obj %}
     {% endif %}
   </div>
 {% endblock %}

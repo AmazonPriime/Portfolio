@@ -1,10 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.core.paginator import Paginator
 from projects.models import Project, View
 
 def index(request):
     context_dict = {}
-    context_dict['projects'] = Project.objects.all().order_by('-date_updated')
+    projects = Project.objects.all().order_by('-date_updated')
+    paginator = Paginator(projects, 7)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context_dict['page_obj'] = page_obj
     return render(request, 'projects/projects.html', context_dict)
 
 def views(request, name):

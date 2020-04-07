@@ -1,10 +1,8 @@
 {% load latest %}
 {% get_newest_project as project %}
 <div class="latest">
-    <div class="lead info-bar">
-        <a class="link" data-toggle="collapse" href="#latestCollapse">Latest Project <i class="fas fa-arrow-down"></i></a>
-    </div>
-    <div class="info-content collapse" id="latestCollapse">
+    <div class="lead info-bar">Latest Project</div>
+    <div class="info-content">
         <span data-toggle="tooltip" title="Project Title"><i class="fas fa-book"></i> <a class="link" href="{% url 'project_views' project.name %}" target="_blank">{{ project.name }} <i class="fas fa-external-link-alt"></i></a></span> <br>
         <span data-toggle="tooltip" title="Project Description"><i class="fas fa-info-circle"></i> {{ project.description }}</span> <br>
         <span data-toggle="tooltip" title="Project Created"><i class="fas fa-calendar-alt"></i> {{ project.date_created }}</span> <br>

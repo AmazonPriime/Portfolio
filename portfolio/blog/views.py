@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.core.paginator import Paginator
+from django.template.defaultfilters import slugify
 from blog.models import Post, View
 from blog.forms import PostForm
 from datetime import datetime
@@ -11,7 +13,10 @@ import json
 def index(request):
     context_dict = {}
     posts = Post.objects.all().order_by('-date_created')
-    context_dict['posts'] = posts
+    paginator = Paginator(posts, 7)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context_dict['page_obj'] = page_obj
     return render(request, 'blog/blog.html', context_dict)
 
 def post(request, id):

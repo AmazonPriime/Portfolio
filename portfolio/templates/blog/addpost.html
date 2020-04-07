@@ -6,7 +6,7 @@
     Add Blog Post
   </div>
   <div class="info-content">
-    <form id="post_form" method="post" action="{% url 'add_blog_post' %}">
+    <form id="new_post" method="post" action="{% url 'add_blog_post' %}">
       {% for message in messages %}
         <div class="alert alert-danger">
           <a class="close" href="#" data-dismiss="alert">×</a>
