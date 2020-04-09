@@ -40,7 +40,7 @@
       After=network.target
    
       [Service]
-      User=chris
+      User=<USERNAME>
       Group=www-data
       WorkingDirectory=/home/<USERNAME>/Portfolio/porfolio/
       ExecStart=/home/<USERNAME>/Portfolio/env/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/<USERNAME>/Portfolio/portfolio/portfolio.sock portfolio.wsgi:application
