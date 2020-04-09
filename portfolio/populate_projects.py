@@ -30,7 +30,7 @@ def get_repositories(session):
 def get_projects(repos, session):
     projects = {}
     for repo in repos:
-        if not repo['private']:
+        if not repo['private'] and repo['owner']['id'] == 12765128:
             projects[repo['id']] = {
                 'name' : repo['name'],
                 'desc' : repo['description'],
@@ -43,6 +43,14 @@ def get_projects(repos, session):
                 'watchers' : int(repo['watchers_count'])
             }
     return projects
+
+# cleans DB of projects which have been removed from the repoistory
+def clean_projects(projects):
+    db_projects = Project.objects.all()
+    for project in db_projects:
+        if not int(project.project_id) in projects:
+            print(project)
+            project.delete()
 
 # gathers all languages used and returns a set
 def get_languages(projects):
@@ -69,7 +77,7 @@ def add_projects(projects):
 
         language = Language.objects.get_or_create(name = projects[project]['main_lang'])[0]
 
-        project_obj = Project.objects.get_or_create(project_id = project)[0]
+        project_obj = Project.objects.get_or_create(project_id = str(project))[0]
         project_obj.name = projects[project]['name']
         project_obj.description = projects[project]['desc']
         project_obj.url = projects[project]['url']
@@ -98,6 +106,9 @@ def main():
     session = connect_github()
     repos = get_repositories(session)
     projects = get_projects(repos, session)
+    print("- Removing Deleted Projects")
+    clean_projects(projects)
+    print("- Finsihed Removing Deleted Projects")
     languages = get_languages(projects)
     populate(languages, projects)
     print("Script finished.")
