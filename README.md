@@ -43,7 +43,7 @@
       User=chris
       Group=www-data
       WorkingDirectory=/home/<USERNAME>/Portfolio/porfolio/
-      ExecStart=/home/<USERNAME>/Portfolio/env/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/chris/webapp/AWESOME_PROJECT/awesome.sock AWESOME.wsgi:application
+      ExecStart=/home/<USERNAME>/Portfolio/env/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/<USERNAME>/Portfolio/portfolio/portfolio.sock portfolio.wsgi:application
 
       [Install]
       WantedBy=multi-user.target
