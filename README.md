@@ -38,7 +38,7 @@
       [Unit]
       Description=gunicorn service
       After=network.target
-   
+
       [Service]
       User=<USERNAME>
       Group=www-data
@@ -60,10 +60,10 @@
       server {
              listen 80;    
              server_name 127.0.0.1;
-             location = /favicon.ico {access_log off;log_not_found off;} 
+             location = /favicon.ico {access_log off;log_not_found off;}
 
              location /static/ {
-               root /home/<USERNAME>/Portfolio/porfolio/static;    
+               root /home/<USERNAME>/Portfolio/portfolio;    
              }
 
              location / {
