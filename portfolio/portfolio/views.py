@@ -13,5 +13,5 @@ def index(request):
                 languages[language] = 1
             else:
                 languages[language] += 1
-    context_dict['languages'] = languages
+    context_dict['languages'] = sorted(languages.items(), key = lambda x: x[1], reverse = True)[:7]
     return render(request, 'index.html', context_dict)

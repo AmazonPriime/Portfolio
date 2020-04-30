@@ -37,6 +37,8 @@
               <i class="fab fa-html5 fa-4x"></i>
             {% elif project.language|lower == "javascript" %}
               <i class="fab fa-js-square fa-4x"></i>
+            {% elif project.language|lower == "dart" %}
+              <img src="{% static 'images/dart2.svg' %}" class="img-fluid" style="">
             {% else %}
               <i class="fab fa-{{ project.language|lower }} fa-4x"></i>
             {% endif %}
